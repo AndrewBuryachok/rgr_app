@@ -3,9 +3,7 @@ from time import time
 
 start = 0
 
-def enter_phrase():
-    times = []
-
+def measure_times(times):
     def on_press(key):
         global start
         start = time()
