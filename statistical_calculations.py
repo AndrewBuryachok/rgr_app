@@ -10,7 +10,7 @@ def variance(X, M):
     S = 0
     for x in X:
         S += (x - M) ** 2
-    S /= len(X) + 1
+    S /= len(X) - 1
     S = sqrt(S)
     return S
 
