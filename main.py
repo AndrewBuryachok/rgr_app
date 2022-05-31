@@ -3,24 +3,23 @@ from statistical_calculations import *
 from key_logging import *
 import tkinter as tk
 
-main_bgc = "#121212"
-bg_color = "#1E1E1E"
-font_color = "#ffffff"
+black_color = "#121212"
+gray_color = "#1E1E1E"
+white_color = "#ffffff"
 purple_color = "#6200EE"
 
 def create_label(text):
-    #label = tk.Label(root, text=text, bg=main_bgc, fg=font_color, font=40)
-    label = tk.Label(root, text=text, bg=purple_color, fg=font_color, font=40)
+    label = tk.Label(root, text=text, bg=purple_color, fg=white_color, font=40)
     label.pack(fill="x")
     return label
 
 def create_entry():
-    entry = tk.Entry(root, bg=bg_color, fg=font_color)
+    entry = tk.Entry(root, bg=gray_color, fg=white_color)
     entry.pack()
     return entry
 
 def create_button(text, function):
-    button = tk.Button(root, text=text, bg=bg_color, fg=font_color, command=function)
+    button = tk.Button(root, text=text, bg=gray_color, fg=white_color, command=function)
     button.pack()
     return button
 
@@ -38,8 +37,7 @@ def render_error(text):
     label = create_label(text)
     button = create_button("Menu", render_menu)
 
-def submit_phrase(mode, name, phrase, times):
-    print(times)
+def submit_phrase(mode, name, times):
     times = remove_brute_errors(times)
     if mode == "study":
         M = expected_value(times)
@@ -64,8 +62,7 @@ def enter_phrase(mode, name):
     label = create_label("Phrase (enter 10 chars)")
     entry = create_entry()
     btn = create_button("Start", lambda: measure_times(times))
-    button = create_button("Next", lambda: submit_phrase(mode, name, entry.get(), times))
-    #times = measure_times()
+    button = create_button("Next", lambda: submit_phrase(mode, name, times))
 
 def submit_name(mode, name):
     if mode == "login" and not check_user(name):
@@ -86,7 +83,7 @@ if __name__ == "__main__":
     root.title("Super Secure App")
     root.geometry("400x200+400+200")
     root.resizable(False, False)
-    root.config(bg=main_bgc)
+    root.config(bg=black_color)
 
     render_menu()
 
