@@ -17,7 +17,7 @@ def check_user(user):
 
 def get_user(user):
     data = read_json("users.json")
-    return (data[user]["M"], data["user"]["D"])
+    return (data[user]["M"], data[user]["D"])
 
 def set_user(user, M, D):
     data = read_json("users.json")
